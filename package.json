@@ -1,6 +1,6 @@
 {
   "name": "instabug-takehome",
-  "version": "1.2",
+  "version": "1.2.0",
   "dependencies": {
     "@uirouter/angularjs": "^1.0.30",
     "@vue/composition-api": "^1.4.4",
