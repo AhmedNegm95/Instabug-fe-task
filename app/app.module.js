@@ -4,10 +4,13 @@ import 'ngVue/build/plugins.js';
 import PerformancePageComponent from './pages/performance-page.vue';
 import PerformanceChartComponent from './components/vue-components/performance-chart.vue';
 
+import EmployeesFilterComponent from './components/vue-components/employees-filter.vue';
+
 angular.module('appModule', [
   'ui.router',
   'ngVue',
   'ngVue.plugins',
+  'core',
 ]);
 
 angular.module('appModule').directive('vPerformancePage', (createVueComponent) => {
@@ -16,4 +19,8 @@ angular.module('appModule').directive('vPerformancePage', (createVueComponent) =
 
 angular.module('appModule').directive('vPerformanceChart', (createVueComponent) => {
   return createVueComponent(Vue.component('performanceChartComponent', PerformanceChartComponent));
+});
+
+angular.module('appModule').directive('vEmployeesFilter', (createVueComponent) => {
+  return createVueComponent(Vue.component('employeesFilterComponent', EmployeesFilterComponent));
 });

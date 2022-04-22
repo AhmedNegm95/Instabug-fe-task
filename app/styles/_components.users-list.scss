@@ -26,6 +26,11 @@
       display: table-cell;
       padding: 0 8px;
       vertical-align: middle;
+
+      .highlight-text {
+        color: #FFF;
+        background-color: red;
+      }
     }
   }
 
