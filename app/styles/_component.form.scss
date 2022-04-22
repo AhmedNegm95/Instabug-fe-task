@@ -1,0 +1,31 @@
+.form-inline {
+    display: flex;
+
+    &:not(:last-child) {
+        margin-right: 1rem;
+    }
+
+    &--align-center {
+        justify-content: center;
+    }
+
+    &__input {
+        border-radius: 5px;
+        border: 1px solid gray;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__btn {
+        color: #FFF;
+        background-color: #0099ff;
+        padding: .5rem 2rem;
+        border-radius: 5px;
+
+        &--ml-1 {
+            margin-left: .5rem;
+        }
+    }
+}
