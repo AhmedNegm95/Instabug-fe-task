@@ -2,19 +2,37 @@ angular
   .module('appModule')
   .controller('homeController', homePageController);
 
-function homePageController(Employees, $stateParams, $location) {
+function homePageController(Employees, $location) {
   const homePageVm = this;
   homePageVm.employees = [];
   homePageVm.filterText = '';
+  homePageVm.isLoading = false;
+  homePageVm.hasMorePages = false;
 
-  activate();
+  let currentPage = 1;
 
-  function activate() {
-    Employees.getEmployees()
+  // activate();
+
+  // function activate() {
+  //   Employees.getEmployees()
+  //     .then(({ data }) => {
+  //       homePageVm.employees = homePageVm.employees.concat(data.employees);
+  //     });
+  // }
+
+  homePageVm.loadEmployees = function () {
+    homePageVm.isLoading = true;
+    Employees.getEmployees(currentPage++)
       .then(({ data }) => {
         homePageVm.employees = homePageVm.employees.concat(data.employees);
+        homePageVm.isLoading = false;
+        if (currentPage > data.pages) {
+          homePageVm.hasMorePages = true;
+        }
       });
-  }
+  };
+
+  homePageVm.loadEmployees();
 
   (function () {
     if ($location.search().filter) {
