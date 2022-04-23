@@ -28,4 +28,11 @@
             margin-left: .5rem;
         }
     }
+
+    .form-control {
+
+        &--ml-2 {
+            margin-left: 1rem;
+        }
+    }
 }
