@@ -36,13 +36,10 @@ export default {
     if(this.$store.getters.teamPerformanceChartPoints.length == 0) {
       let teamPerformanceData = await axios.get('https://fe-task.getsandbox.com/performance')
       if(teamPerformanceData) {
-        console.log('team performance data > ', teamPerformanceData)
         this.teamPerformanceData = teamPerformanceData.data
         this.minDate = this.getDateIsoFormat(this.teamPerformanceData[0].date_ms)
         this.maxDate = this.getDateIsoFormat(this.teamPerformanceData[this.teamPerformanceData.length - 1].date_ms)
-        console.log('min date > ', this.minDate, this.maxDate)
         this.$store.commit('setTeamPerformanceChartPoints', this.teamPerformanceData)
-        console.log('store chart points > ', this.$store.getters.teamPerformanceChartPoints)
       }
     } else {
       this.teamPerformanceData = this.$store.getters.teamPerformanceChartPoints
@@ -52,7 +49,6 @@ export default {
   },
   methods: {
     onFilterDaterange(daterange) {
-      console.log('event range > ', daterange.startDate, daterange.endDate)
       this.teamPerformanceData = this.getChartPointsInDaterange(daterange.startDate, daterange.endDate)
     },
     getChartPointsInDaterange(startDate, endDate) {

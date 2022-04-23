@@ -28,7 +28,6 @@ export default {
         filterByDate() {
             if (!this.startDate || !this.endDate || new Date(this.startDate).getTime() > new Date(this.endDate).getTime())
                 return;
-            console.log('date > ', this.startDate, this.endDate)
             let daterange = {
                 startDate: this.startDate,
                 endDate: this.endDate
