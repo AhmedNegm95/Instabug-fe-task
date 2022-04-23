@@ -38,36 +38,7 @@ export default {
 
   data() {
     return {
-      // chartData: [
-      //   {
-      //     date_ms: 1641772800000,
-      //     performance: 0.2,
-      //   },
-      //   {
-      //     date_ms: 1641859200000,
-      //     performance: 0.33,
-      //   },
-      //   {
-      //     date_ms: 1641945600000,
-      //     performance: 0.53,
-      //   },
-      //   {
-      //     date_ms: 1642032000000,
-      //     performance: 0.31,
-      //   },
-      //   {
-      //     date_ms: 1642118400000,
-      //     performance: 0.65,
-      //   },
-      //   {
-      //     date_ms: 1642204800000,
-      //     performance: 0.88,
-      //   },
-      //   {
-      //     date_ms: 1642291200000,
-      //     performance: 0.07,
-      //   },
-      // ],
+
     };
   },
 
@@ -90,7 +61,18 @@ export default {
           transitionDuration: 0,
           confine: false,
           hideDelay: 0,
-          padding: 0,
+          padding: [8, 15],
+
+          backgroundColor: '#16253F',
+          textStyle: {
+            color: 'white'
+          },
+
+          formatter: function(params) {
+            return `<strong style="display: block;text-align: center">${params[0].axisValue}</strong>
+                    ${params[0].marker} Team Perfromance Index: ${params[0].value}%
+                    `
+          }
         },
         grid: {
           left: "30px",
@@ -130,6 +112,26 @@ export default {
             },
           },
         ],
+        visualMap: {
+          top: 50,
+          right: 10,
+          pieces: [
+            {
+              gt: 0,
+              lt: 50,
+              color: 'red'
+            },
+            {
+              gte: 50,
+              lte: 80,
+              color: 'yellow'
+            },
+            {
+              gt: 80,
+              color: 'green'
+            }
+          ]
+        },
       };
     },
 
