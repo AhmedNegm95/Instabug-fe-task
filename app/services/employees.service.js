@@ -1,8 +1,8 @@
 angular.module('appModule').service('Employees', EmployeesService);
 
 function EmployeesService($http) {
-  const getEmployees = () => {
-    const employeesUrl = 'https://fe-task.getsandbox.com/employees';
+  const getEmployees = (currentPage = 1) => {
+    const employeesUrl = 'https://fe-task.getsandbox.com/employees?page=' + currentPage;
 
     return $http.get(employeesUrl);
   };

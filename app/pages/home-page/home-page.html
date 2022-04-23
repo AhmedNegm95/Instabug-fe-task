@@ -12,8 +12,8 @@
   <employees-list search-text="homePageVm.filterText" employees-list="homePageVm.employees"></employees-list>
 
   <div class="c-dashboard__footer">
-    <button class="c-button">
-      Load More
+    <button ng-if="!homePageVm.hasMorePages" ng-disabled="homePageVm.isLoading" ng-click="homePageVm.loadEmployees()" class="c-button">
+      {{ homePageVm.isLoading ? 'Loading...' : 'Load More' }}
     </button>
   </div>
 </div>
