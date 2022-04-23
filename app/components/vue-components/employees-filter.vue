@@ -9,6 +9,7 @@
 
 <script>
 export default {
+    name: 'EmployeesFilterComponent',
     props: ['employeesList'],
     data() {
         return {
